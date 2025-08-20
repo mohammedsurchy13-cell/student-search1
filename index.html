@@ -7,13 +7,26 @@
     body {
       font-family: "Noto Naskh Arabic", sans-serif;
       background: #f0f2f5;
-      padding: 20px;
+      padding: 20px; 
       direction: rtl;
       text-align: right;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     h1 {
       text-align: center;
       color: #333;
+      margin-top: 10px;
     }
     input {
       width: 100%;
@@ -72,6 +85,11 @@
   </style>
 </head>
 <body>
+  <!-- لۆگۆی سەرەوە -->
+  <header>
+    <img src="Screenshot 2025-06-11 232514.png" alt="لۆگۆ">
+  </header>
+
   <h1>سیستەمی گەڕان بە کود</h1>
   <input type="text" id="searchBox" placeholder="کود بنووسە بۆ گەڕان...">
 
@@ -92,12 +110,11 @@
       { زیندەوەر: 49, کوردی: 97, بیرکاری: 86, کود: "123", ناو: "ئازاد کرم" },
       { زیندەوەر: 90, کوردی: 87, بیرکاری: 45, کود: "124", ناو: "احمد شاکر" },
       { زیندەوەر: 89, کوردی: 67, بیرکاری: 98, کود: "125", ناو: "محمد برندار" },
-      // قوتابیە نوێکان
       { زیندەوەر: 70, کوردی: 80, بیرکاری: 90, کود: "126", ناو: "شیرین محمد" },
       { زیندەوەر: 40, کوردی: 55, بیرکاری: 60, کود: "127", ناو: "سارا عثمان" },
       { زیندەوەر: 95, کوردی: 99, بیرکاری: 97, کود: "128", ناو: "هێمن حەسەن" }
     ];
- 
+
     const searchBox = document.getElementById('searchBox');
     const studentCard = document.getElementById('studentCard');
     const studentName = document.getElementById('studentName');
