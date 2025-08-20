@@ -13,20 +13,22 @@
     }
     header {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 20px;
     }
     header img {
-      width: 100px;
-      height: 100px;
+      height: 60px;
       border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     h1 {
       text-align: center;
       color: #333;
-      margin-top: 10px;
+      margin: 10px 0;
     }
     input {
       width: 100%;
@@ -82,15 +84,29 @@
       color: #155724;
       font-weight: bold;
     }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    footer .author {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #007bff;
+    }
   </style>
 </head>
 <body>
-  <!-- لۆگۆی سەرەوە -->
   <header>
-    <img src="Screenshot 2025-06-11 232514.png" alt="لۆگۆ">
+    <img src="logo.png" alt="لۆگۆ">
+    <h1>سیستەمی گەڕان بە کود</h1>
   </header>
 
-  <h1>سیستەمی گەڕان بە کود</h1>
   <input type="text" id="searchBox" placeholder="کود بنووسە بۆ گەڕان...">
 
   <div class="card" id="studentCard">
@@ -104,6 +120,16 @@
     <div class="info">مجموعی گشتی: <span id="total"></span></div>
     <div class="info">بار: <span id="status"></span></div>
   </div>
+
+  <footer>
+    <p>ناو: محمد بریندار</p>
+    <p>ژ.ت: 07508554005</p>
+    <p>ئەدرەس: ئاکرێ - دهوک - کوردستان</p>
+    <div class="author">
+      ⚡ ئەم پرۆژەیە بە ژیری دەستکردی <span style="color:#c82333;">محمد بریندار</span> ⚡
+    </div>
+    <p>© 2025 هەموو مافەکانی پارێزراون</p>
+  </footer>
 
   <script>
     const students = [
