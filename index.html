@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ckb">
+<head>
+  <meta charset="UTF-8">
+  <title>گەڕان بۆ قوتابی</title>
+  <style>
+    body {
+      font-family: "Noto Naskh Arabic", sans-serif;
+      background: #f0f2f5;
+      padding: 20px;
+      direction: rtl;
+      text-align: right;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    .card {
+      display: none;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f1f1f1;
+      margin-bottom: 15px;
+    }
+    .student-name {
+      font-size: 22px;
+      font-weight: bold;
+      color: #007bff;
+    }
+    .student-code {
+      font-size: 18px;
+      color: #555;
+    }
+    .info {
+      margin: 10px 0;
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    .fail-card {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+    .pass-card {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+    .fail {
+      color: #c82333;
+      font-weight: bold;
+    }
+    .pass {
+      color: #155724;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>سیستەمی گەڕان بە کود</h1>
+  <input type="text" id="searchBox" placeholder="کود بنووسە بۆ گەڕان...">
+
+  <div class="card" id="studentCard">
+    <div class="header-section">
+      <div class="student-name" id="studentName"></div>
+      <div class="student-code">کود: <span id="studentCode"></span></div>
+    </div>
+    <div class="info">زیندەوەر: <span id="bio"></span></div>
+    <div class="info">کوردی: <span id="kurdish"></span></div>
+    <div class="info">بیرکاری: <span id="math"></span></div>
+    <div class="info">مجموعی گشتی: <span id="total"></span></div>
+    <div class="info">بار: <span id="status"></span></div>
+  </div>
+
+  <script>
+    const students = [
+      { زیندەوەر: 49, کوردی: 97, بیرکاری: 86, کود: "123", ناو: "ئازاد کرم" },
+      { زیندەوەر: 90, کوردی: 87, بیرکاری: 45, کود: "124", ناو: "احمد شاکر" },
+      { زیندەوەر: 89, کوردی: 67, بیرکاری: 98, کود: "125", ناو: "محمد برندار" }
+    ];
+
+    const searchBox = document.getElementById('searchBox');
+    const studentCard = document.getElementById('studentCard');
+    const studentName = document.getElementById('studentName');
+    const studentCode = document.getElementById('studentCode');
+    const bio = document.getElementById('bio');
+    const kurdish = document.getElementById('kurdish');
+    const math = document.getElementById('math');
+    const total = document.getElementById('total');
+    const status = document.getElementById('status');
+
+    searchBox.addEventListener('keyup', function() {
+      let value = this.value.trim();
+      if (value === "") {
+        studentCard.style.display = "none";
+        return;
+      }
+
+      let found = students.find(s => s.کود === value);
+      if (found) {
+        studentCard.style.display = "block";
+
+        studentName.textContent = found.ناو;
+        studentCode.textContent = found.کود;
+        bio.textContent = found.زیندەوەر;
+        kurdish.textContent = found.کوردی;
+        math.textContent = found.بیرکاری;
+
+        let totalScore = found.زیندەوەر + found.کوردی + found.بیرکاری;
+        total.textContent = totalScore;
+
+        if (found.زیندەوەر < 50 || found.کوردی < 50 || found.بیرکاری < 50) {
+          status.textContent = "کەوتووە";
+          status.className = "fail";
+          studentCard.className = "card fail-card";
+        } else {
+          status.textContent = "سەرکەوتوو";
+          status.className = "pass";
+          studentCard.className = "card pass-card";
+        }
+      } else {
+        studentCard.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
