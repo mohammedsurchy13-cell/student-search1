@@ -2,34 +2,39 @@
 <html lang="ckb">
 <head>
   <meta charset="UTF-8">
-  <title>گەڕان بۆ قوتابی</title>
+  <title>ئه‌نجامەکان</title>
   <style>
     body {
       font-family: "Noto Naskh Arabic", sans-serif;
       background: #f0f2f5;
-      padding: 20px; 
+      padding: 20px;
       direction: rtl;
       text-align: right;
+      margin: 0;
     }
-    header {
+
+    /* ✅ لۆگۆ */
+    .logo-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      background: #fff;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
-    header img {
-      height: 60px;
+    .logo-container img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #007bff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
     h1 {
       text-align: center;
       color: #333;
-      margin: 10px 0;
+      margin-bottom: 20px;
     }
+
     input {
       width: 100%;
       padding: 12px;
@@ -37,7 +42,9 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       font-size: 16px;
+      box-sizing: border-box;
     }
+
     .card {
       display: none;
       border-radius: 14px;
@@ -45,68 +52,80 @@
       padding: 20px;
       margin-top: 20px;
       transition: all 0.3s ease-in-out;
+      background: #fff;
     }
+
     .header-section {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
       padding-bottom: 15px;
       border-bottom: 2px solid #f1f1f1;
       margin-bottom: 15px;
     }
+
     .student-name {
       font-size: 22px;
       font-weight: bold;
       color: #007bff;
     }
+
     .student-code {
       font-size: 18px;
       color: #555;
     }
+
     .info {
-      margin: 10px 0;
-      padding: 8px;
-      border-bottom: 1px solid #eee;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: #f9f9f9;
+      font-size: 16px;
     }
+
     .fail-card {
       background: #f8d7da;
       border: 1px solid #f5c6cb;
     }
+
     .pass-card {
       background: #d4edda;
       border: 1px solid #c3e6cb;
     }
+
     .fail {
       color: #c82333;
       font-weight: bold;
     }
+
     .pass {
       color: #155724;
       font-weight: bold;
     }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-    footer .author {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #007bff;
+
+    /* 📱 Responsive - لەسەر مۆبایل */
+    @media (max-width: 768px) {
+      .logo-container img {
+        width: 90px;
+        height: 90px;
+      }
+      .student-name {
+        font-size: 20px;
+      }
+      .student-code {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="لۆگۆ">
-    <h1>سیستەمی گەڕان بە کود</h1>
-  </header>
 
+  <!-- ✅ لۆگۆ لەسەرەوە -->
+  <div class="logo-container">
+    <img src="Screenshot 2025-06-11 232514.png" alt="لوگۆ">
+  </div>
+
+  <h1>ئه‌نجامەکان</h1>
   <input type="text" id="searchBox" placeholder="کود بنووسە بۆ گەڕان...">
 
   <div class="card" id="studentCard">
@@ -121,14 +140,8 @@
     <div class="info">بار: <span id="status"></span></div>
   </div>
 
-  <footer>
-    <p>ناو: محمد بریندار</p>
-    <p>ژ.ت: 07508554005</p>
-    <p>ئەدرەس: ئاکرێ - دهوک - کوردستان</p>
-    <div class="author">
-      ⚡ ئەم پرۆژەیە بە ژیری دەستکردی <span style="color:#c82333;">محمد بریندار</span> ⚡
-    </div>
-    <p>© 2025 هەموو مافەکانی پارێزراون</p>
+  <footer style="margin-top:30px; text-align:center; font-size:14px; color:#555;">
+    دروستکراوە لەلایەن <b>محمد بریندار</b> | ژ.ت: ٠٧٥٠٨٥٥٤٠٠٥ | ناونیشان: ئاکرێ - دهوك - كوردستان
   </footer>
 
   <script>
